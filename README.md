@@ -1,105 +1,76 @@
+<div align="center">
 
-<h1 align="center">
-  <p>peyajArenaReset</p>
-  <img width=20% src="https://i.imgur.com/vVXzVAR.png" alt="peyajArenaReset Banner">
-</h1>
+# 🌍 peyajArenaReset
+**The Ultimate Area Management & Resetting Tool for PaperMC**
 
-<h4 align="center">A light-weight arena resetter Minecraft Plugin for PaperMC.</h4>
-<hr>
+[![Paper Supported](https://img.shields.io/badge/Paper-1.21.x-blue.svg?style=for-the-badge&logo=paper)](https://papermc.io/)
+[![Version](https://img.shields.io/badge/Version-1.0-success.svg?style=for-the-badge)]()
+[![Status](https://img.shields.io/badge/Status-Closed_Source-red.svg?style=for-the-badge)]()
 
-<p align="center">
-  <a href="#about">About</a>
-  •
-  <a href="#features">Features</a>
-  •
-  <a href="#dependencies">Dependencies</a>
-  •
-  <a href="#installation-guide">Installation Guide</a>
-  •
-  <a href="#permissions">Permissions</a>
-  •
-  <a href="#commands">Commands</a>
-  •
-  <a href="#support">Support</a>
-  •
-  <a href="#contributions">Contributions</a>
-  •
-  <a href="#license">License</a>
-</p>
+*A modern, asynchronous, and fully-featured fork of AreaResetterPro, now maintained and updated by **peyaj**.*
+
+</div>
 
 ---
 
-> [!Note]
->
-> #### ***peyajArenaReset requires FastAsyncWorldEdit to operate!***
+## 📖 About This Fork
 
-## About
+**peyajArenaReset** breathes new life into the original concept of AreaResetterPro. It has been completely refactored to seamlessly support **Java 21**, **Paper 1.21.x**, and the modern **FastAsyncWorldEdit** API. 
 
-peyajArenaReset is a versatile Minecraft plugin (originally a fork of AreaResetterPro by lgndluke, now thoroughly updated and maintained by peyaj) which enables you to create, manage and reset predefined areas of your Minecraft server. It's built to support multiple worlds and offers a in-game GUI for easy administration.
+Designed for performance and simplicity, this plugin allows server administrators to create, manage, and schedule automated resets for specific regions in any world—all without stalling the main server thread.
 
-## Features
+## ✨ Features
 
-- **Efficient Area Resets**: Reseting an Area is done asynchronously, so your servers main-thread can focus on handling other important tasks!
-- **Simplicity**: The Plugin is designed to work straight out of the box.
-- **Scheduled Resets**: peyajArenaReset allows for automated resets. This feature can be disabled in the 'config.yml' file.
-- **Multi-World Support**: Operating across different worlds of your server is no problem.
-- **Customization**: The Plugin allows for customization of nearly every message you will ever receive.
-
-## Dependencies
-
-- `FastAsyncWorldEdit`: Make sure to have the latest version of FastAsyncWorldEdit installed on your Minecraft server. Otherwise peyajArenaReset will not be able to function!
-- `PlaceholderAPI`: Not required! Allows to use placeholders to show how much time until an area is reset the next time. Usage: %peyajarenareset_[areaName]%
-
-## Installation Guide
-
-1. Download peyajArenaReset from [SpigotMC](https://www.spigotmc.org/resources/peyajarenareset.109372/).
-2. Place the downloaded file in your server's `plugins` folder.
-3. Restart your server to load the plugin.
-
-## Permissions
-
-- `peyajarenareset.reload`: Allows players to reload the plugins configuration files.
-- `peyajarenareset.tool`: Allows players to obtain and use the peyajArenaReset Tool.
-- `peyajarenareset.getpos`: Allows players to receive the currently set positions.
-- `peyajarenareset.setspawnpoint`: Allows players to set the spawn-point.
-- `peyajarenareset.getspawnpoint`: Allows players to receive the currently set spawn-point.
-- `peyajarenareset.create`: Allows players to create an new area object.
-- `peyajarenareset.remove`: Allows players to remove an area object.
-- `peyajarenareset.reset`: Allows players to reset an area.
-- `peyajarenareset.menu`: Allows players to use the plugins menu.
-- `peyajarenareset.help`: Allows players to used the help command.
-
-## Commands
-
-- `/par reload`: Reloads the configuration files.
-- `/par tool`: Provides the caller with the peyajArenaReset Tool.
-- `/par getpos`: Provides the player with the currently set positions.
-- `/par setspawnpoint`: Will set the spawn-point to the players location.
-- `/par getspawnpoint`: Provides the player with the currently set spawn-point.
-- `/par create [AreaName]`: Will create a new area object with the corresponding name.
-- `/par remove [AreaName]`: Will delete the corresponding area object, if it exists.
-- `/par reset [AreaName]`: Will reset the corresponding area object, if it exists.
-- `/par menu`: Opens the plugins GUI.
-- `/par help`: Provides players with a simple help text.
-
-## Support
-
-Join my [Discord Server](https://discord.gg/QNz9MdnmGK) for assistance, suggestions, or discussions regarding peyajArenaReset.
-
-## Contributions
-
-### How to Contribute
-1. Fork and star the repository.
-2. Create a branch for your changes.
-3. Commit and push your changes.
-4. Submit a pull request with a clear description of your improvements.
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+- ⚡ **Asynchronous Operations:** All area resets are handled off the main thread, ensuring zero lag spikes during scheduled regenerations.
+- 🕒 **Automated Scheduling:** Set specific time intervals for domains to auto-reset. Perfect for minigames, resource worlds, or PvP arenas.
+- 🎨 **Fully Customizable:** Every single message, menu title, and item lore is translatable and stylized with modern MiniMessage (Kyori) formatting.
+- 🌎 **Multi-World Architecture:** Create and manage distinct areas across any dimension or custom world seamlessly.
+- 🛠️ **In-Game GUI:** An intuitive, click-to-manage menu system for handling area settings, timers, and spawn points.
 
 ---
 
-<div align="center"> 
-<a href='https://www.paypal.com/paypalme/peyaj' target='_blank'><img height='50' src='https://upload.wikimedia.org/wikipedia/commons/thumb/b/b5/PayPal.svg/2560px-PayPal.svg.png' alt='Support Me via PayPal'/></a>
+## ⚙️ Requirements
+
+To run **peyajArenaReset**, your server must meet the following requirements:
+
+| Requirement | Version | Note |
+| :--- | :--- | :--- |
+| **Server Software** | PaperMC 1.21+ | Required for asynchronous scheduler API. |
+| **Java** | Java 21+ | Required for modern runtime compatibility. |
+| **FastAsyncWorldEdit** | Latest | **CRITICAL:** The plugin will not function without FAWE installed. |
+| **PlaceholderAPI** | Latest | *Optional.* Enables `%peyajarenareset_[areaName]%` for reset countdowns. |
+
+---
+
+## 🚀 Installation
+
+1. Ensure **FastAsyncWorldEdit** is installed in your `plugins/` directory.
+2. Download `peyajArenaReset-1.0.jar`.
+3. Drop the `.jar` into your server's `plugins/` folder.
+4. Restart your server.
+5. Configure the generated `config.yml` and `messages.yml` files to your liking!
+
+---
+
+## 💻 Commands & Permissions
+
+All commands are routed cleanly through the `/par` root command. 
+
+| Command | Permission | Description |
+| :--- | :--- | :--- |
+| `/par help` | `peyajarenareset.help` | Displays the help menu in chat. |
+| `/par menu` | `peyajarenareset.menu` | Opens the interactive management GUI. |
+| `/par create <name>` | `peyajarenareset.create` | Creates a new area object with the given name. |
+| `/par remove <name>` | `peyajarenareset.remove` | Deletes the specified area object. |
+| `/par reset <name>` | `peyajarenareset.reset` | Force-resets the specified area instantly. |
+| `/par tool` | `peyajarenareset.tool` | Gives the admin wand for selecting region corners. |
+| `/par getpos` | `peyajarenareset.getpos` | Retrieves the currently set selection coordinates. |
+| `/par setspawnpoint` | `peyajarenareset.setspawnpoint` | Sets the area's spawn to your current location. |
+| `/par getspawnpoint` | `peyajarenareset.getspawnpoint` | Retrieves the area's configured spawn coordinates. |
+| `/par reload` | `peyajarenareset.reload` | Hot-reloads all plugin configurations and messages. |
+
+---
+
+<div align="center">
+  <b>Developed with ❤️ by <a href="https://github.com/realpeyaj">peyaj</a></b>
 </div>
