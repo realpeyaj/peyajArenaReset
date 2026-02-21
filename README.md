@@ -5,6 +5,7 @@
 
 [![Paper Supported](https://img.shields.io/badge/Paper-1.21.x-blue.svg?style=for-the-badge&logo=paper)](https://papermc.io/)
 [![Version](https://img.shields.io/badge/Version-1.0-success.svg?style=for-the-badge)]()
+[![Status](https://img.shields.io/badge/Status-Open_Source-success.svg?style=for-the-badge)]()
 
 *A modern, asynchronous, and fully-featured fork of AreaResetterPro, now maintained and updated by **peyaj**.*
 
