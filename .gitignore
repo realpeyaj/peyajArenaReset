@@ -11,8 +11,9 @@ out/
 # Compiled class file
 *.class
 
-# Log file
+# Log and text files
 *.log
+*.txt
 
 # BlueJ files
 *.ctxt
@@ -112,6 +113,5 @@ buildNumber.properties
 # Common working directory
 run/
 
-# Closed-source logic
-src/main/java/
+# Local Server environment
 server/
