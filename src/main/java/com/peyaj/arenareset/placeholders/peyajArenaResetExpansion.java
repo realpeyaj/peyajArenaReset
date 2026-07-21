@@ -1,0 +1,84 @@
+package com.peyaj.arenareset.placeholders;
+
+import com.peyaj.arenareset.peyajArenaReset;
+import com.peyaj.arenareset.data.AutoResetHandler;
+import com.peyaj.arenareset.data.DatabaseHandler;
+import me.clip.placeholderapi.expansion.PlaceholderExpansion;
+import org.bukkit.OfflinePlayer;
+import org.bukkit.plugin.Plugin;
+import org.jetbrains.annotations.NotNull;
+
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.logging.Level;
+
+/**
+ * PlaceholderAPI implementation of peyajArenaReset.
+ * @author peyaj
+ **/
+public class peyajArenaResetExpansion extends PlaceholderExpansion {
+
+    private final Plugin areaPlugin = peyajArenaReset.getPlugin(peyajArenaReset.class);
+    private final DatabaseHandler databaseHandler = peyajArenaReset.getPlugin(peyajArenaReset.class).getDatabaseHandler();
+    private final AutoResetHandler autoResetHandler = peyajArenaReset.getPlugin(peyajArenaReset.class).getAutoResetHandler();
+    private final String identifier = areaPlugin.getPluginMeta().getName();
+    private final String author = areaPlugin.getPluginMeta().getAuthors().get(0);
+    private final String version = areaPlugin.getPluginMeta().getVersion();
+    private List<String> areaDataList = new ArrayList<>();
+
+    //Methods
+    @Override
+    public @NotNull String getIdentifier() {
+        return identifier;
+    }
+
+    @Override
+    public @NotNull String getAuthor() {
+        return author;
+    }
+
+    @Override
+    public @NotNull String getVersion() {
+        return version;
+    }
+
+    @Override
+    public boolean canRegister() {
+        return true;
+    }
+
+    @Override
+    public boolean persist() {
+        return true;
+    }
+
+    @Override
+    public String onRequest(OfflinePlayer player, @NotNull String areaName) {
+        if(areaDataList.contains(areaName)) {
+            long timerValue = autoResetHandler.getTimeRemaining(areaName);
+            long hours = timerValue / 3600;
+            long minutes = (timerValue % 3600) / 60;
+            long seconds = timerValue % 60;
+            return String.format("%02d:%02d:%02d", hours, minutes, seconds);
+        }
+        return null;
+    }
+
+    public void updateValues() {
+        try {
+            areaDataList.clear();
+            ResultSet results = databaseHandler.getAreaData();
+            if(results != null) {
+                while (results.next()) {
+                    areaDataList.add(results.getString("areaName"));
+                }
+                results.close();
+            }
+        } catch (SQLException se) {
+            areaPlugin.getLogger().log(Level.SEVERE, "Couldn't fetch AreaData!", se);
+        }
+    }
+
+}

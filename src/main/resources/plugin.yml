@@ -1,0 +1,45 @@
+name: peyajArenaReset
+version: '${project.version}'
+main: com.peyaj.arenareset.peyajArenaReset
+api-version: '1.21'
+prefix: peyajArenaReset
+author: peyaj
+description: A Plugin that lets you create, manage and reset areas of your world.
+depend: [FastAsyncWorldEdit]
+softdepend: [PlaceholderAPI]
+commands:
+  par:
+    description: Core command for peyajArenaReset. Use subcommands like create, menu, reset, etc.
+    usage: "/par <subcommand>"
+    aliases: [peyajarenareset]
+permissions:
+  peyajarenareset.help:
+    description: Allows players to use the help command.
+    default: op
+  peyajarenareset.reload:
+    description: Allows players to reload the plugin.
+    default: op
+  peyajarenareset.tool:
+    description: Allows players to obtain and use the PosTool.
+    default: op
+  peyajarenareset.getpos:
+    description: Allows players to receive the currently set corners.
+    default: op
+  peyajarenareset.setspawnpoint:
+    description: Allows players to set the spawnpoint.
+    default: op
+  peyajarenareset.getspawnpoint:
+    description: Allows players to receive the currently set spawnpoint.
+    default: op
+  peyajarenareset.create:
+    description: Allows players to create a new area object.
+    default: op
+  peyajarenareset.remove:
+    description: Allows players to remove an area object.
+    default: op
+  peyajarenareset.reset:
+    description: Allows players to reset an area.
+    default: op
+  peyajarenareset.menu:
+    description: Allows players to use the plugins gui.
+    default: op
